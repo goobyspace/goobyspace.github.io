@@ -1,0 +1,1 @@
+*{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;color:#e1e1e1}#container{min-width:100vw;min-height:100vh;display:flex;flex-direction:row;flex-wrap:wrap}#mainview{background-color:#1f1f1f;width:80vw;flex:1 1 auto}#contentlist{width:20vw;flex-grow:1;min-width:150px;background-color:#3f3f3f}
