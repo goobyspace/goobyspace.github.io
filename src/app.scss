@@ -1,0 +1,35 @@
+$primary: #E1E1E1;
+$dark_background: #1F1F1F;
+$gray_background: #3F3F3F;
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    color: $primary;
+}
+
+#container {
+    min-width:100vw;
+    min-height:100vh;
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+}
+
+#mainview {
+    background-color: $dark_background;
+    width:80vw;
+    flex: 1 1 auto;
+}
+
+#contentlist {
+    width:20vw;
+    flex-grow:1;
+    min-width:150px;
+    background-color: $gray_background;
+}
