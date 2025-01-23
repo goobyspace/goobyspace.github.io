@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Manifest Converter",
+    "description": "This small website/tool converts manifest exports from wow.export to patch .json files for use in Epsilon WoW.",
+    "link": "https://gooby.space/manifest-converter/",
+    "icon": "manifest.svg",
+    "screenshot": "manifest-converter.png"
+  },
+  {
+    "name": "Interface Viewer",
+    "description": "This website is essentially a file explorer for the github repo goobyspace/interface that contains the WoW interface files.",
+    "link": "https://gooby.space/interface-viewer/",
+    "icon": "interface.svg",
+    "screenshot": "interface-viewer.png"
+  }
+]
