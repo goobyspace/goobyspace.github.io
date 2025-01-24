@@ -66,13 +66,13 @@ function ContentList() {
     const getRem = (rem: number) =>
       rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 
-    const itemWidth = getRem(6);
-    const arrowWidth = getRem(16.5);
+    const itemWidth = getRem(width > 768 ? 6 : 4);
+    const arrowWidth = getRem(width > 768 ? 16.5 : 10);
 
     const newMaxItems = Math.floor((width - arrowWidth) / itemWidth);
     const newShowArrows = newMaxItems < context?.state.projects.length;
 
-    setMaxItems(newMaxItems);
+    setMaxItems(newMaxItems > 0 ? newMaxItems : 1);
     setShowArrows(newShowArrows);
   }, [width, context]);
 

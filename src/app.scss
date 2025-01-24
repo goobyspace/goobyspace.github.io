@@ -34,6 +34,10 @@ html {
 #contentblocker {
   height: 8rem;
   width: 100%;
+
+  @media screen and (max-width: 768px) {
+    height: 6.5rem;
+  }
 }
 
 #contentlist {
@@ -47,6 +51,8 @@ html {
   padding: 0.5rem 0.8rem 0.8rem 0.5rem;
 
   @media screen and (max-width: 768px) {
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem 0.5rem 0.25rem;
     bottom: 1rem;
     top: auto;
   }
@@ -73,6 +79,12 @@ html {
     box-shadow: 1px 1px 0, 2px 2px 0, 3px 3px 0, 4px 4px 0, 5px 5px 0;
     position: relative;
 
+    @media screen and (max-width: 768px) {
+      width: 3.5rem;
+      height: 3.5rem;
+      font-size: 0.8rem;
+    }
+
     &:hover:not(.disabled, .selected) {
       background-color: $secondary_light;
     }
@@ -88,6 +100,13 @@ html {
       top: 0.25rem;
       width: 4rem;
       height: 4rem;
+
+      @media screen and (max-width: 768px) {
+        width: 1.5rem;
+        height: 1.5rem;
+        top: 1rem;
+      }
+
       img {
         width: 100%;
         height: 100%;
@@ -104,6 +123,9 @@ html {
       &.back {
         img {
           left: 0.8rem;
+          @media screen and (max-width: 768px) {
+            left: 0.3rem;
+          }
         }
       }
 
@@ -127,6 +149,11 @@ html {
       width: 2.5rem;
       height: 2.5rem;
       border-radius: 8px;
+
+      @media screen and (max-width: 768px) {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
     }
   }
 }
