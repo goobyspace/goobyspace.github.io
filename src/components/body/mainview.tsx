@@ -1,6 +1,11 @@
 import { useStateContext } from "../../state/stateContext";
 import { useEffect, useState } from "react";
 import { Project } from "../../types";
+import Screenshot from "./screenshot";
+import Icon from "./icon";
+import Description from "./description";
+import Title from "./title";
+import Link from "./Link";
 
 function MainView() {
   const [project, setProject] = useState<Project>({
@@ -24,7 +29,21 @@ function MainView() {
       }
     });
   }, [context]);
-  return <div id="mainview">{project.name}</div>;
+  return (
+    <div id="mainview">
+      <Screenshot screenshot={project.screenshot} />
+      <div id="info">
+        <span>
+          <Icon icon={project.icon} />
+          <Title title={project.name} />
+        </span>
+
+        <Link link={project.link} />
+
+        <Description description={project.description} />
+      </div>
+    </div>
+  );
 }
 
 export default MainView;

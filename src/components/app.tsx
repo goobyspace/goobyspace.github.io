@@ -27,6 +27,7 @@ function App() {
   return (
     <div id="container">
       <StateContext.Provider value={{ state, dispatch }}>
+        <div id="contentblocker" />
         <ContentList />
         <MainView />
       </StateContext.Provider>

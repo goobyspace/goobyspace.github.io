@@ -3,10 +3,14 @@ function Item({
   name,
   icon,
   index,
+  selected,
+  hidden,
 }: {
   name: string;
   icon: string;
   index: number;
+  selected: boolean;
+  hidden: boolean;
 }) {
   const context = useStateContext();
   const { dispatch } = context ? context : { dispatch: () => {} };
@@ -19,7 +23,10 @@ function Item({
   };
 
   return (
-    <div className="item" onClick={onClick}>
+    <div
+      className={(hidden ? "hidden" : "item") + (selected ? " selected" : "")}
+      onClick={onClick}
+    >
       <img src={icon} alt={name} />
       <h2>{name}</h2>
     </div>
