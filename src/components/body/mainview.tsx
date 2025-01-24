@@ -5,7 +5,7 @@ import Screenshot from "./screenshot";
 import Icon from "./icon";
 import Description from "./description";
 import Title from "./title";
-import Link from "./Link";
+import Link from "./link";
 
 function MainView() {
   const [project, setProject] = useState<Project>({
