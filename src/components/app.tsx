@@ -17,6 +17,7 @@ function App() {
       const projects = res.default.map((project, index) => {
         return { ...project, index };
       });
+      console.log(projects);
       dispatch({
         type: "SET_PROJECTS",
         payload: projects,

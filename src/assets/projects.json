@@ -1,30 +1,66 @@
 [
   {
-    "name": "Manifest Converter",
-    "description": "This small website/tool converts manifest exports from wow.export to patch .json files for use in Epsilon WoW.",
-    "link": "https://gooby.space/manifest-converter/",
-    "icon": "manifest.svg",
-    "screenshot": "manifest-converter.png"
+    "name": "Web",
+    "type": "tiles",
+    "content": [
+      {
+        "name": "Manifest Converter",
+        "description": "This small website/tool converts manifest exports from wow.export to patch .json files for use in Epsilon WoW.",
+        "link": "https://gooby.space/manifest-converter/",
+        "icon": "manifest.svg",
+        "screenshots": ["manifest-converter.png"]
+      },
+      {
+        "name": "Lancer",
+        "description": "A website for the TTRPG Lancer & the supplement Blood Money, featuring a rotating weekly store as well as a job board and a quick reference for players. Made to aid the TTRPG group I run with interacting with the store in my campaign.",
+        "link": "https://gooby.space/lancer/",
+        "icon": "lancer.svg",
+        "screenshots": []
+      },
+      {
+        "name": "Lancer Keyword",
+        "description": "An NPM package for the TTRPG Lancer, providing a web component implementation of lancer keywords users can hover over, allowing easy integration into any project. Mostly done to try out both web components & building an NPM package. Used in the main Lancer site.",
+        "link": "https://www.npmjs.com/package/lancer-keyword",
+        "icon": "keyword.svg",
+        "screenshots": []
+      },
+      {
+        "name": "Interface Viewer",
+        "description": "This website is essentially a file explorer for the github repo goobyspace/interface that contains the WoW interface files.",
+        "link": "https://gooby.space/interface-viewer/",
+        "icon": "interface.svg",
+        "screenshots": ["interface-viewer.png"]
+      }
+    ]
   },
   {
-    "name": "Interface Viewer",
-    "description": "This website is essentially a file explorer for the github repo goobyspace/interface that contains the WoW interface files.",
-    "link": "https://gooby.space/interface-viewer/",
-    "icon": "interface.svg",
-    "screenshot": "interface-viewer.png"
+    "name": "Addons",
+    "type": "tiles",
+    "content": [
+      {
+        "name": "Queue Sound",
+        "description": "WoW Addon that plays a clip of \"Hey Ho Let's Go\" by the Ramones when your queue pops. Queue Sound is a simple addon, meant to add an extra reminder that your arena queue just popped and you should probably click accept if you don't want your arena mates to get mad at you. \n\nRight now, it includes functionality for Arenas, Shuffle, BGs, Skirmish, LFR & LFD queues, it plays a 10 second file of \"Hey Ho Let's Go\" by the Ramones to remind you to join your queue with functionality to turn it off for each seperate queue type. \n\nThere's a menu, found via /qs config or /qsound config that shows a simple toggle menu, from which you can individually toggle the sound for the queue types currently available",
+        "link": "https://addons.wago.io/addons/queuesound",
+        "icon": "queuesound.png",
+        "screenshots": ["queuesoundconfig.png"]
+      },
+      {
+        "name": "Retail Bag Sort",
+        "description": "WoW Addon that replicates the retail sorting functionality for classic. \n\nAdds a sort icon to your main bag that will sort your bags to my personal estimation of the Retail sorting order, as well as allowing you to click on bag icons to set sorting options for each bag (Quest, Consumables, Trade Goods & Equipment) that will then be sorted into that bag. \n\nProfession & class bags (Quivers, herb bags, etc) are currently managed automatically and can not have categories set.",
+        "link": "https://addons.wago.io/addons/retailsort",
+        "icon": "retailbagsort.png",
+        "screenshots": ["sortbag.png"]
+      }
+    ]
   },
   {
-    "name": "Queue Sound",
-    "description": "WoW Addon that plays a clip of \"Hey Ho Let's Go\" by the Ramones when your queue pops. Queue Sound is a simple addon, meant to add an extra reminder that your arena queue just popped and you should probably click accept if you don't want your arena mates to get mad at you. \n\nRight now, it includes functionality for Arenas, Shuffle, BGs, Skirmish, LFR & LFD queues, it plays a 10 second file of \"Hey Ho Let's Go\" by the Ramones to remind you to join your queue with functionality to turn it off for each seperate queue type. \n\nThere's a menu, found via /qs config or /qsound config that shows a simple toggle menu, from which you can individually toggle the sound for the queue types currently available",
-    "link": "https://addons.wago.io/addons/queuesound",
-    "icon": "queuesound.png",
-    "screenshot": "queuesoundconfig.png"
+    "name": "Games",
+    "type": "tiles",
+    "content": []
   },
   {
-    "name": "Retail Bag Sort",
-    "description": "WoW Addon that replicates the retail sorting functionality for classic. \n\nAdds a sort icon to your main bag that will sort your bags to my personal estimation of the Retail sorting order, as well as allowing you to click on bag icons to set sorting options for each bag (Quest, Consumables, Trade Goods & Equipment) that will then be sorted into that bag. \n\nProfession & class bags (Quivers, herb bags, etc) are currently managed automatically and can not have categories set.",
-    "link": "https://addons.wago.io/addons/retailsort",
-    "icon": "retailbagsort.png",
-    "screenshot": "sortbag.png"
+    "name": "Other",
+    "type": "tiles",
+    "content": []
   }
 ]

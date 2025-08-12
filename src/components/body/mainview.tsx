@@ -1,6 +1,6 @@
 import { useStateContext } from "../../state/stateContext";
 import { useEffect, useState } from "react";
-import { Project } from "../../types";
+import { Project, Tile } from "../../types";
 import Screenshot from "./screenshot";
 import Icon from "./icon";
 import Description from "./description";
@@ -10,10 +10,8 @@ import Link from "./link";
 function MainView() {
   const [project, setProject] = useState<Project>({
     name: "",
-    description: "",
-    link: "",
-    icon: "",
-    screenshot: "",
+    type: "tiles",
+    content: [],
     index: 0,
   });
   const context = useStateContext();
@@ -31,17 +29,25 @@ function MainView() {
   }, [context]);
   return (
     <div id="mainview">
-      <Screenshot screenshot={project.screenshot} />
-      <div id="info">
-        <span>
-          <Icon icon={project.icon} />
-          <Title title={project.name} />
-        </span>
+      {(project.content as Tile[]).map((tile, index) => (
+        <div key={index} className="tile">
+          <div className="info">
+            <span>
+              <Icon icon={tile.icon} />
+              <Title title={tile.name} />
+            </span>
 
-        <Link link={project.link} />
+            <Link link={tile.link} />
 
-        <Description description={project.description} />
-      </div>
+            <Description description={tile.description} />
+          </div>
+          <div className="screenshots">
+            {tile.screenshots.map((screenshot, idx) => (
+              <Screenshot screenshot={screenshot} key={idx} />
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
