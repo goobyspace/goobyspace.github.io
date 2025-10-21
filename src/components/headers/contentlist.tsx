@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useWindowWidth } from "@react-hook/window-size/throttled";
 
 import "./headers.scss";
+import { universalTag } from "../../types";
 
 function ContentList() {
   const [items, setItems] = useState<JSX.Element[]>([]);
@@ -20,7 +21,7 @@ function ContentList() {
 
     const projects = state.projects;
 
-    const tagsSet = new Set<string>();
+    const tagsSet = new Set<string>([universalTag]);
     for (let i = 0; i < projects.length; i++) {
       for (let x = 0; x < projects[i].tags.length; x++) {
         tagsSet.add(projects[i].tags[x]);

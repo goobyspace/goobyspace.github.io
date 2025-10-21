@@ -77,7 +77,7 @@
     "link": "https://goobyspace.itch.io/fox-jam",
     "icon": "pcb.svg",
     "screenshots": ["pcbdesign.webp", "pcbprinted.png", "leverless.JPG"],
-    "github": "",
+    "github": "https://github.com/goobyspace/GRAM-P5-Mini",
     "tags": ["other"]
   }
 ]

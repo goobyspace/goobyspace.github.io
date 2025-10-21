@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
 
-function Screenshot({
-  screenshot,
-  onClick,
-}: {
-  screenshot: string;
-  onClick: () => void;
-}) {
+function Screenshot({ screenshot }: { screenshot: string }) {
   const [url, setUrl] = useState("");
+  const [magnify, setMagnify] = useState(false);
 
   useEffect(() => {
     setUrl("");
@@ -17,10 +12,11 @@ function Screenshot({
   return (
     <>
       <img
-        className="screenshot"
+        className={`screenshot ${magnify ? "magnified" : ""}`}
         src={url}
         alt={"screenshot"}
-        onClick={() => onClick()}
+        onMouseEnter={() => setMagnify(true)}
+        onMouseLeave={() => setMagnify(false)}
       />
     </>
   );

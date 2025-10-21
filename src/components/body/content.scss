@@ -11,86 +11,20 @@
   flex-wrap: wrap;
   justify-content: start;
 
-  .tile {
-    width: calc(50% - 3rem); //2 for padding 1 for gap
-    height: min-content;
-    background-color: $dark_background;
-    padding: 1rem;
-    position: relative;
-
-    @media screen and ((max-width: 768px) or (max-aspect-ratio: 3/4)) {
-      width: 100%;
-    }
-  }
-  .screenshots {
+  .tile-container {
+    height: 100%;
+    margin: 0 auto;
+    gap: 1rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem 0 0 0;
-    overflow: hidden;
     justify-content: start;
-  }
 
-  .screenshot {
-    object-fit: contain;
-    border: 1px solid $primary;
-    max-height: 10rem;
-    max-width: 100%;
-  }
-
-  .screenshotGallery {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 2;
-    background-color: RGBA(0, 0, 0, 0.7);
-    backdrop-filter: blur(1rem);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .galleryScreenshot {
-      width: 80vw;
-      z-index: 3;
-      max-height: 100vh;
-    }
-
-    .galleryArrowButton {
-      background: none;
-      img {
-        mix-blend-mode: difference;
-        height: 10rem;
-        max-width: 10vw;
-      }
-    }
-  }
-
-  .info {
-    display: flex;
+    flex-grow: 1;
+    flex-basis: 0;
     flex-direction: column;
-    gap: 1rem;
 
-    span {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-      font-size: 1.5rem;
-
-      .icon {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-    }
-
-    .link {
-      color: $secondary;
-    }
-
-    .description {
-      white-space: pre-wrap;
+    @media screen and ((max-width: 768px) or (max-aspect-ratio: 3/4)) {
+      flex-direction: row;
     }
   }
 }

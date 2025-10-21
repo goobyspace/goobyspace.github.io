@@ -24,3 +24,5 @@ export type ContextType = {
   state: State;
   dispatch: React.Dispatch<Action>;
 };
+
+export const universalTag = "all";

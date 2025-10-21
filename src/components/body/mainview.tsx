@@ -1,16 +1,12 @@
 import { useStateContext } from "../../state/stateContext";
 import { useEffect, useState } from "react";
-import { Project } from "../../types";
-import Screenshot from "./screenshot";
-import Icon from "./icon";
-import Description from "./description";
-import Title from "./title";
-import Link from "./link";
-import ScreenshotGallery from "./screenshotgallery";
+import { Project, universalTag } from "../../types";
 
 import "./content.scss";
+import ProjectTile from "./project/project";
 
 function MainView() {
+  const [mobile, setMobile] = useState(false);
   const [projects, setProjects] = useState<Project[]>([
     {
       name: "",
@@ -22,8 +18,6 @@ function MainView() {
       github: "",
     },
   ]);
-  const [screenshotIndex, setScreenshotIndex] = useState(0);
-  const [screenshots, setScreenshots] = useState<string[]>([]);
 
   const context = useStateContext();
 
@@ -35,7 +29,10 @@ function MainView() {
     const newProjects: Project[] = [];
 
     state.projects.forEach((project) => {
-      if (project.tags.includes(state.mainView)) {
+      if (
+        project.tags.includes(state.mainView) ||
+        state.mainView === universalTag
+      ) {
         newProjects.push(project);
       }
     });
@@ -43,35 +40,50 @@ function MainView() {
     setProjects([...newProjects]);
   }, [context]);
 
+  useEffect(() => {
+    const resize = () => {
+      //((max-width: 768px) or (max-aspect-ratio: 3/4))
+      if (
+        window.innerWidth <= 768 ||
+        window.innerWidth / window.innerHeight <= 0.75
+      ) {
+        setMobile(true);
+      } else setMobile(false);
+    };
+
+    window.addEventListener("resize", resize);
+
+    return () => window.removeEventListener("resize", resize);
+  }, []);
+
   return (
     <div id="mainview">
-      <ScreenshotGallery screenshots={screenshots} index={screenshotIndex} />
-      {projects.map((project, index) => (
-        <div key={index} className="tile">
-          <div className="info">
-            <span>
-              <Icon icon={project.icon} />
-              <Title title={project.name} />
-            </span>
-
-            <Link link={project.link} />
-
-            <Description description={project.description} />
-          </div>
-          <div className="screenshots">
-            {project.screenshots.map((screenshot, idx) => (
-              <Screenshot
-                screenshot={screenshot}
-                key={idx}
-                onClick={() => {
-                  setScreenshotIndex(idx);
-                  setScreenshots(project.screenshots);
-                }}
-              />
-            ))}
-          </div>
+      {mobile ? (
+        <div className="tile-container">
+          {projects.map((project, index) => (
+            <ProjectTile project={project} index={index} key={index} />
+          ))}
         </div>
-      ))}
+      ) : (
+        [
+          <div className="tile-container" key="tile-1">
+            {projects.map(
+              (project, index) =>
+                index % 2 === 0 && (
+                  <ProjectTile project={project} index={index} key={index} />
+                )
+            )}
+          </div>,
+          <div className="tile-container" key="tile-2">
+            {projects.map(
+              (project, index) =>
+                index % 2 !== 0 && (
+                  <ProjectTile project={project} index={index} key={index} />
+                )
+            )}
+          </div>,
+        ]
+      )}
     </div>
   );
 }

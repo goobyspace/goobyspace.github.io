@@ -4,10 +4,11 @@ import StateContext from "../state/stateContext.ts";
 import { reducer } from "../state/reducers.ts";
 import React, { useEffect } from "react";
 import Blob from "./background/blob.tsx";
+import { universalTag } from "../types.ts";
 
 function App() {
   const initialState = {
-    mainView: "",
+    mainView: universalTag,
     projects: [],
   };
 
@@ -17,11 +18,6 @@ function App() {
     import("./../assets/projects.json").then((res) => {
       const projects = res.default.map((project, index) => {
         return { ...project, index };
-      });
-
-      dispatch({
-        type: "SET_CONTENT",
-        payload: projects[0].tags[0],
       });
 
       dispatch({
