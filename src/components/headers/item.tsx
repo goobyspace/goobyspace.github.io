@@ -1,12 +1,12 @@
 import { useStateContext } from "../../state/stateContext";
 function Item({
   name,
-  index,
+  tag,
   selected,
   hidden,
 }: {
   name: string;
-  index: number;
+  tag: string;
   selected: boolean;
   hidden: boolean;
 }) {
@@ -16,7 +16,7 @@ function Item({
   const onClick = () => {
     dispatch({
       type: "SET_CONTENT",
-      payload: index,
+      payload: tag,
     });
   };
 

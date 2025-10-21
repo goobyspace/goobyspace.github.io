@@ -10,7 +10,7 @@
   padding: 0.5rem 0.8rem 0.8rem 0.5rem;
   z-index: 2;
 
-  @media screen and (max-width: 768px) {
+  @media screen and ((max-width: 768px) or (max-aspect-ratio: 3/4)) {
     gap: 0.5rem;
     padding: 0.25rem 0.5rem 0.5rem 0.25rem;
     bottom: 1rem;
@@ -40,20 +40,40 @@
     top: 0;
     left: 0;
 
-    @media screen and (max-width: 768px) {
+    @media screen and ((max-width: 768px) or (max-aspect-ratio: 3/4)) {
       //list becomes vertical
       font-size: 0.8rem;
     }
 
-    &:hover:not(.disabled, .selected) {
-      border-radius: 8px 0 0 0;
-      top: 0.2rem;
-      left: 0.2rem;
+    &::after {
+      transition: 0.3s;
+      content: "";
+      position: absolute;
+
+      margin-top: 1.2rem;
+      width: 0%;
+      height: 0.2rem;
+      background-color: $primary;
+      rotate: 0;
     }
 
-    &.selected {
-      top: 0.2rem;
-      left: 0.2rem;
+    &:hover:not(.disabled, .selected) {
+      &:nth-child(odd) {
+        rotate: 3deg;
+      }
+
+      &:nth-child(even) {
+        rotate: -3deg;
+      }
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &.selected::after {
+      width: 100%;
+      margin-top: 0rem;
     }
 
     h2 {

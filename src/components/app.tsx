@@ -3,10 +3,11 @@ import ContentList from "./headers/contentlist.tsx";
 import StateContext from "../state/stateContext.ts";
 import { reducer } from "../state/reducers.ts";
 import React, { useEffect } from "react";
+import Blob from "./background/blob.tsx";
 
 function App() {
   const initialState = {
-    mainView: 0,
+    mainView: "",
     projects: [],
   };
 
@@ -17,7 +18,12 @@ function App() {
       const projects = res.default.map((project, index) => {
         return { ...project, index };
       });
-      console.log(projects);
+
+      dispatch({
+        type: "SET_CONTENT",
+        payload: projects[0].tags[0],
+      });
+
       dispatch({
         type: "SET_PROJECTS",
         payload: projects,
@@ -27,6 +33,7 @@ function App() {
 
   return (
     <div id="container">
+      <Blob />
       <StateContext.Provider value={{ state, dispatch }}>
         <div id="contentblocker" />
         <ContentList />

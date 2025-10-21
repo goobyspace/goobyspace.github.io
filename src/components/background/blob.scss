@@ -1,0 +1,77 @@
+@use "../../vars" as *;
+
+.blob-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+// https://9elements.github.io/fancy-border-radius/
+
+@keyframes first-blob {
+  0% {
+    border-radius: 89% 11% 22% 78% / 26% 66% 34% 74%;
+  }
+  25% {
+    border-radius: 57% 43% 50% 50% / 48% 47% 53% 52%;
+  }
+  50% {
+    border-radius: 94% 6% 77% 23% / 8% 50% 50% 92%;
+  }
+  75% {
+    border-radius: 64% 36% 39% 61% / 51% 60% 40% 49%;
+  }
+  100% {
+    border-radius: 89% 11% 22% 78% / 26% 66% 34% 74%;
+  }
+}
+
+@keyframes second-blob {
+  0% {
+    border-radius: 56% 44% 36% 64% / 39% 71% 29% 61%;
+  }
+  25% {
+    border-radius: 71% 29% 43% 57% / 64% 90% 10% 36%;
+  }
+  50% {
+    border-radius: 56% 44% 78% 22% / 22% 85% 15% 78%;
+  }
+  75% {
+    border-radius: 64% 36% 8% 92% / 12% 12% 88% 88%;
+  }
+  100% {
+    border-radius: 56% 44% 36% 64% / 39% 71% 29% 61%;
+  }
+}
+
+.blob {
+  content: "";
+  position: absolute;
+  width: 100vmax;
+  height: 100vmax;
+  background: radial-gradient(
+    circle,
+    $secondary_light 0%,
+    $secondary_dark 100%
+  );
+
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+
+  &:first-child {
+    top: -55vmax;
+    left: -50vmax;
+
+    animation-name: first-blob;
+  }
+
+  &:last-child {
+    top: 35vmax;
+    left: 30vmax;
+
+    animation-name: second-blob;
+  }
+}

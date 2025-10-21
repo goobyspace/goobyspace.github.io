@@ -1,30 +1,23 @@
 import React from "react";
 
-export type Tile = {
+export type Project = {
   name: string;
   description: string;
   link: string;
   icon: string;
   screenshots: string[];
-};
-
-export type Article = string;
-
-export type Project = {
-  name: string;
-  type: "tiles" | "article" | string;
-  content: Tile[] | Article;
-  index: number;
+  tags: string[];
+  github: string;
 };
 
 export type State = {
-  mainView: number;
+  mainView: string;
   projects: Project[];
 };
 
 export type Action = {
   type: "SET_CONTENT" | "SET_PROJECTS";
-  payload: number | Project[];
+  payload: string | Project[];
 };
 
 export type ContextType = {

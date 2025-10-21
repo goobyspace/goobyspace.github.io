@@ -18,27 +18,30 @@ function ContentList() {
     const { state } = context;
     const tempItems: JSX.Element[] = [];
 
-    const legalIndex: number[] = [];
+    const projects = state.projects;
 
-    state.projects.forEach((project) => {
-      if (project.index < maxItems) {
-        //if the project is within range of current index + max items count
-        legalIndex.push(project.index);
+    const tagsSet = new Set<string>();
+    for (let i = 0; i < projects.length; i++) {
+      for (let x = 0; x < projects[i].tags.length; x++) {
+        tagsSet.add(projects[i].tags[x]);
       }
-    });
+    }
 
-    legalIndex.forEach((index) => {
-      const project = state.projects[index];
+    const tags = Array.from(tagsSet);
+
+    for (let i = 0; i < tags.length; i++) {
+      const tag = tags[i];
       tempItems.push(
         <Item
-          key={index}
-          name={project.name}
-          index={project.index}
-          selected={state.mainView === project.index}
-          hidden={legalIndex.includes(index) ? false : true}
+          key={i}
+          name={tag}
+          tag={tag}
+          selected={state.mainView === tag}
+          hidden={i < maxItems ? false : true}
         />
       );
-    });
+    }
+
     setItems(tempItems);
   }, [context, maxItems]);
 
