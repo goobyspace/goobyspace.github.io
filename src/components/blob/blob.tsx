@@ -42,8 +42,8 @@ function Blob(
         <div
             id={classes.container}
             className={className}
-            onMouseEnter={event => transitionShape(event.currentTarget, true)}
-            onMouseLeave={event => transitionShape(event.currentTarget, false)}
+            onPointerEnter={event => transitionShape(event.currentTarget, true)}
+            onPointerLeave={event => transitionShape(event.currentTarget, false)}
         >
             {text}
         </div>
