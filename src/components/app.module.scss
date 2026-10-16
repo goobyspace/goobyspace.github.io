@@ -1,54 +1,14 @@
 .blobContainer {
-    --radius: min(10rem,
-            calc(50dvw - 3rem),
-            calc(50dvh - 3rem));
-
     position: fixed;
     inset: 0;
-    background-color: var(--background-color);
+    background-color: var(--blob-bg-color);
 }
 
-.filters {
-    position: absolute;
-    width: 0;
-    height: 0;
-}
-
-.blobWrapper {
+.scene {
     position: absolute;
     inset: 0;
-    filter: url(#goo);
-}
 
-.center {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 10rem;
-    height: 10rem;
-    transform: translate(-50%, -50%);
-}
-
-.orbit {
-    --angle: calc(var(--index) * 360deg / var(--count) - 90deg);
-
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 8rem;
-    height: 8rem;
-
-    transition: 600ms;
-
-    &:hover {
-        width: 10rem;
-        height: 10rem;
+    &.inactive {
+        pointer-events: none;
     }
-
-    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--radius)) rotate(calc(0deg - var(--angle)));
-}
-
-.flex {
-    width: 100%;
-    height: 100%;
 }

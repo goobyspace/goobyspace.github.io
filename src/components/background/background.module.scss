@@ -1,0 +1,27 @@
+.background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background: var(--blob-bg-color);
+}
+
+.ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 70vmin;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%) scale(calc(1 + var(--ring-size) * 0.65));
+    --blob-color: var(--blob-bg-color);
+
+    &:nth-child(even) {
+        --blob-color: var(--blob-fg-color);
+    }
+}
+
+.contour {
+    position: absolute;
+    inset: 0;
+    filter: url(#goo) drop-shadow(0 1px 1px rgb(0 0 0 / 12%));
+}

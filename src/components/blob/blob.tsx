@@ -1,19 +1,36 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import classes from "./blob.module.scss";
 
 function Blob(
     {
-        text,
-        className
+        className,
+        style,
+        children,
+        SetHovering,
+        onClick,
+        ariaLabel,
     }: {
-        text: string,
-        className: string;
+        className?: string;
+        style?: CSSProperties;
+        children?: ReactNode;
+        SetHovering?: (hovering: boolean) => void;
+        onClick?: (element: HTMLDivElement) => void;
+        ariaLabel?: string;
     }) {
+    const [hovering, setHovering] = useState(false);
+    const container = useRef<HTMLDivElement>(null);
     const hoverAnimation = useRef<Animation | null>(null);
+    const wasHovering = useRef(hovering);
 
-    useEffect(() => () => hoverAnimation.current?.cancel(), []);
+    useEffect(() => {
+        return () => hoverAnimation.current?.cancel();
+    }, []);
 
-    function transitionShape(element: HTMLDivElement, hovering: boolean) {
+    useLayoutEffect(() => {
+        const element = container.current;
+        if (!element || wasHovering.current === hovering) return;
+        wasHovering.current = hovering;
+
         element.style.animationPlayState = "paused";
         const currentRadius = getComputedStyle(element).borderRadius;
         hoverAnimation.current?.cancel();
@@ -36,16 +53,33 @@ function Blob(
                 hoverAnimation.current = null;
             };
         }
-    }
+    }, [hovering]);
 
     return (
         <div
-            id={classes.container}
-            className={className}
-            onPointerEnter={event => transitionShape(event.currentTarget, true)}
-            onPointerLeave={event => transitionShape(event.currentTarget, false)}
+            ref={container}
+            className={`${classes.container} ${classes.shape} ${className ?? ""}`}
+            style={style}
+            role={onClick ? "button" : undefined}
+            tabIndex={onClick ? 0 : undefined}
+            aria-label={ariaLabel}
+            onKeyDown={event => {
+                if (onClick && event.target === event.currentTarget && (event.key === "Enter" || event.key === " ")) {
+                    event.preventDefault();
+                    onClick(event.currentTarget);
+                }
+            }}
+            onPointerEnter={() => {
+                setHovering(true);
+                SetHovering?.(true);
+            }}
+            onPointerLeave={() => {
+                setHovering(false);
+                SetHovering?.(false);
+            }}
+            onClick={event => onClick?.(event.currentTarget)}
         >
-            {text}
+            {children}
         </div>
     );
 }

@@ -1,0 +1,80 @@
+.project {
+    --rotation: 0deg;
+
+    flex: 0 0 clamp(5.5rem, 8vw, 8rem);
+    color: var(--blob-bg-color);
+    text-decoration: none;
+    text-align: center;
+    scroll-snap-align: start;
+    font-weight: bold;
+    line-height: 1.3;
+    font-size: clamp(0.75rem, 1vw, 1rem);
+
+    &:first-child {
+        margin-left: auto;
+    }
+
+    &:last-child {
+        margin-right: auto;
+    }
+
+    &:nth-child(8n + 1) {
+        --rotation: -8deg;
+    }
+
+    &:nth-child(8n + 2) {
+        --rotation: 5deg;
+    }
+
+    &:nth-child(8n + 3) {
+        --rotation: -3deg;
+    }
+
+    &:nth-child(8n + 4) {
+        --rotation: 9deg;
+    }
+
+    &:nth-child(8n + 5) {
+        --rotation: -6deg;
+    }
+
+    &:nth-child(8n + 6) {
+        --rotation: 3deg;
+    }
+
+    &:nth-child(8n + 7) {
+        --rotation: -10deg;
+    }
+
+    &:nth-child(8n + 8) {
+        --rotation: 7deg;
+    }
+
+    &[aria-current="page"] .projectIcon,
+    &:hover .projectIcon,
+    &:focus-visible .projectIcon {
+        background: var(--blob-bg-color);
+        transform: translateY(-0.25rem) rotate(var(--rotation));
+    }
+}
+
+.projectIcon {
+    width: clamp(4.5rem, 6vw, 6rem);
+    height: clamp(4.5rem, 6vw, 6rem);
+    padding: clamp(1.2rem, 1.6vw, 1.6rem);
+    box-sizing: border-box;
+    margin: 0 auto 0.5rem;
+    background: var(--blob-fg-color);
+    transform: rotate(var(--rotation));
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform: rotate(calc(0deg - var(--rotation)));
+    }
+
+    span {
+        transform: rotate(calc(0deg - var(--rotation)));
+    }
+}

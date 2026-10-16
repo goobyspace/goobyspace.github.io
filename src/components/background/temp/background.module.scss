@@ -1,0 +1,21 @@
+.background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background: var(--blob-bg-color);
+}
+
+.ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: calc(var(--ring-size) * 16vmax);
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    background: var(--blob-bg-color);
+
+    &:nth-child(even) {
+        background: var(--blob-fg-color);
+    }
+}

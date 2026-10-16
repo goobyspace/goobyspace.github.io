@@ -1,9 +1,42 @@
 :root {
-    --blob-color: #ff0034;
-    --blob-text-color: #fafafa;
-    --blob-hover-color: #ff2288;
-    --blob-text-hover-color: #fafafa;
+    --blob-color: #ED3732;
+    --blob-text-color: #32ED73;
+    --blob-hover-color: #DD4752;
+    --blob-text-hover-color: #2BFF75;
 
-    --background-color: #222233;
-    background-color: var(--background-color);
+    --blob-bg-color: #E7ED32;
+    --blob-bg-text-color: #DD4752;
+    --blob-fg-color: #329AED;
+    --blob-fg-text-color: #E7ED32;
+
+    background-color: var(--blob-bg-color);
+
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--blob-text-color);
+}
+
+.ubuntu-mono-regular {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.ubuntu-mono-bold {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.ubuntu-mono-regular-italic {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.ubuntu-mono-bold-italic {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 700;
+    font-style: italic;
 }
